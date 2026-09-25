@@ -972,7 +972,9 @@ for func_str, unit_arguments, wrap_output in (
     ("min", ["a", "initial"], True),
     ("searchsorted", ["a", "v"], False),
     ("nan_to_num", ["x", "nan", "posinf", "neginf"], True),
-    ("clip", ["a", "a_min", "a_max"], True),
+    # numpy 2.1 added `min`/`max` as array-API compatible spellings of
+    # `a_min`/`a_max`, so both need their units converted.
+    ("clip", ["a", "a_min", "a_max", "min", "max"], True),
     ("append", ["arr", "values"], True),
     ("compress", "a", True),
     ("linspace", ["start", "stop"], True),
